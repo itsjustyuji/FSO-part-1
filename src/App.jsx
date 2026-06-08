@@ -13,6 +13,15 @@ const Button=({name, onClick})=>{
   )
 }
 
+const StatisticsLine=({text, val})=>{
+  console.log({text})
+  return(
+    <div>
+      {text} {val}
+    </div>
+  )
+}
+
 const Statistics=({good, neutral, bad, average, posPerc})=>{
   if(good===0 && neutral===0 && bad===0){
     return(
@@ -22,14 +31,15 @@ const Statistics=({good, neutral, bad, average, posPerc})=>{
     )
   }
   return (
-    <>
-      <div>good {good}</div>
-      <div>neutral {neutral}</div>
-      <div>bad {bad}</div>
-      <div>all {good + neutral + bad}</div>
-      <div>average {average}</div>
-      <div>positive {posPerc} %</div>
-    </>
+    <div>
+      <StatisticsLine text="good" val={good} />
+      <StatisticsLine text="neutral" val={neutral} />
+      <StatisticsLine text="bad" val={bad} />
+      <StatisticsLine text="all" val={good+neutral+bad} />
+      <StatisticsLine text="average" val={average} />
+      <StatisticsLine text="positive" val={`${posPerc} %`} />
+
+    </div>
   )
 }
 
