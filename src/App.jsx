@@ -16,9 +16,10 @@ const Button=({name, onClick})=>{
 const StatisticsLine=({text, val})=>{
   console.log({text})
   return(
-    <div>
-      {text} {val}
-    </div>
+    <tr>
+      <td>{text}</td> 
+      <td>{val}</td>
+    </tr>
   )
 }
 
@@ -31,15 +32,16 @@ const Statistics=({good, neutral, bad, average, posPerc})=>{
     )
   }
   return (
-    <div>
-      <StatisticsLine text="good" val={good} />
-      <StatisticsLine text="neutral" val={neutral} />
-      <StatisticsLine text="bad" val={bad} />
-      <StatisticsLine text="all" val={good+neutral+bad} />
-      <StatisticsLine text="average" val={average} />
-      <StatisticsLine text="positive" val={`${posPerc} %`} />
-
-    </div>
+    <table>
+      <tbody>
+        <StatisticsLine text="good" val={good} />
+        <StatisticsLine text="neutral" val={neutral} />
+        <StatisticsLine text="bad" val={bad} />
+        <StatisticsLine text="all" val={good+neutral+bad} />
+        <StatisticsLine text="average" val={average} />
+        <StatisticsLine text="positive" val={`${posPerc} %`} />
+      </tbody>
+    </table>
   )
 }
 
