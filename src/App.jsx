@@ -14,6 +14,13 @@ const Button=({name, onClick})=>{
 }
 
 const Statistics=({good, neutral, bad, average, posPerc})=>{
+  if(good===0 && neutral===0 && bad===0){
+    return(
+      <div>
+        No feedback given
+      </div>
+    )
+  }
   return (
     <>
       <div>good {good}</div>
@@ -49,7 +56,6 @@ const App = () => {
       <Button name="bad" onClick={badClick} />
       <Header title="statistics" />
       <Statistics good={good} neutral={neutral} bad={bad} average={average} posPerc={posPerc}/>
-
     </div>
   )
 }
